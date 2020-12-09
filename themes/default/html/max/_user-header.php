@@ -365,6 +365,8 @@
                     <a href="<?php echo $K->SITE_URL.$D->username?>/friends" <?php echo($D->_IS_LOGGED ? 'rel="phantom" target="profile-content-area"' : '') ?> class="one-option no_in_movil"><?php echo($this->lang('profile_txt_friends'));?></a>
                     
                     <a href="<?php echo $K->SITE_URL.$D->username?>/photos" <?php echo($D->_IS_LOGGED ? 'rel="phantom" target="profile-content-area"' : '') ?> class="one-option no_in_tablet no_in_movil no_in_movil_land"><?php echo($this->lang('profile_txt_photos'));?></a>
+
+                    <a href="<?php echo $K->SITE_URL.$D->username?>/earnings" class="one-option no_in_tablet no_in_movil no_in_movil_land">Earnings</a>
                     
                     <a href="<?php echo $K->SITE_URL.$D->username?>" id="menu-more-profile-link" <?php echo($D->_IS_LOGGED ? 'rel="phantom" target="profile-content-area"' : '') ?> class="one-option"><span><?php echo($this->lang('profile_txt_more'));?></span> <span><img src="<?php echo getImageTheme('ico-more-menu.png')?>"></span></a>
                     

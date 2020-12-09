@@ -37,8 +37,18 @@
             </div>
             <?php } ?>
 
-        
-            
+        </div>
+
+    </div>
+
+    <div class="clear" style="margin-top:10px"></div>
+
+
+    <div class="space-box" style="background:#3191f5; color:#fff">
+        <div class="body-space-box">
+           
+
+    
 
             <?php if ($D->article_views > 0 && $D->me->iduser == $D->iduser) { ?>
 
@@ -74,18 +84,27 @@
                 
                 
                 ?>
-                
-            <div class="item-with-icon">
-                <div class="part1"><img src="<?php echo getImageTheme('ico-dollar.png')?>"></div>
-                <div class="part2">Total Blog Views <span class="resalt"><?php echo standard_count($D->article_views)?></span></div>
-                <div class="clear"></div>
-            </div>
 
-            <div class="item-with-icon">
-                <div class="part1"><img src="<?php echo getImageTheme('ico-dollar.png')?>"></div>
-                <div class="part2">Total Earnings <span class="resalt"><?php echo earn_bdt($D->article_views)?></span></div>
-                <div class="clear"></div>
-            </div>
+                <div style="display:flex">
+                <p style="float:left; margin:auto">Blog Views</p>
+                <p style="float:right; margin:auto">Earnings</p>
+                </div>
+
+
+                <center>
+                    <h1 style="font-size:30px; margin-top:50px; margin-bottom:50px"><?php echo standard_count($D->article_views)?></h1>
+                </center>
+
+
+                <div style="display:flex">
+                <p style="float:left; margin:auto"><?php echo earn_bdt($D->article_views)?></p>
+                <a href="<?php echo $K->SITE_URL.$D->username?>/earnings" class="withdraw-btn">Withdraw</a>
+                </div>
+
+                
+      
+
+           
             <?php } ?>
 
 

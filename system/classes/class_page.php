@@ -234,6 +234,10 @@ class page
                         $this->request[] = 'profile-friends';
                         break;
 
+                    case 'earnings':
+                        $this->request[] = 'profile-earnings';
+                        break;
+
                     case 'followers':
                         $this->request[] = 'profile-followers';
                         break;
