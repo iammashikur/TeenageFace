@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 09:32 AM
+-- Generation Time: Dec 17, 2020 at 02:53 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.20
 
@@ -1485,8 +1485,17 @@ INSERT INTO `recent_searches` (`id`, `iduser`, `iditem`, `typeitem`, `whendate`)
 CREATE TABLE `referrals` (
   `id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `credit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `referrals`
+--
+
+INSERT INTO `referrals` (`id`, `status`, `user_id`, `credit`) VALUES
+(1, 1, 6, 100),
+(2, 1, 6, 200);
 
 -- --------------------------------------------------------
 
@@ -1848,7 +1857,7 @@ INSERT INTO `users` (`iduser`, `code`, `firstname`, `lastname`, `user_email`, `u
 (3, 'NQPx2jNcnaV', 'Ruha', 'Hasan', 'rubahasan@gmail.com', 'rubahasan', '8bf98f223652dbd2dfd5bc47a563645e', '548BV-9zmzrj-C550csc.jpg', 'mnMQQV7D4Wn', 'wfKJD-Jv8WGH-g6MK5jn.jpg', 'BRHkY1qQDSZ', '0', 2, '1999-01-01', '', '', '', '', '', '', '', 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1605158582, 162158, 0, 0, 1605158582, 2728306391, 1605160352, 0, 0, 1, 6, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (4, 'y5GzvDM408h', 'Sunjida', 'Nupa', 'sunjidanupa@gmail.com', 'Sanupa', 'fae6ffe9a9bf8cd6e0ba35d71607d174', '', '', '', '', '0', 2, '2000-11-07', '', '', '', '', '', '', '', 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1605159224, 162158, 1605159224, 2728294348, 1605162996, 2728294127, 1605163112, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (5, 'SNBjNVaDfzX', 'Upoma', 'Rahman', 'upomarahman@gmail.com', 'upomarahman', '27d694fdb39687366d321df3cce7815e', 'Fp5JZ-4BC40k-6hZpw2W.jpg', '0Zg8ZTBDy6G', 'RN6T9-w2n10b-pGyDZVZ.jpg', 'nrHZKsdQ5cn', '0', 2, '1995-04-04', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1605195217, 103136, 1605197027, 1737018400, 1605197160, 1737018400, 1605197220, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
-(6, 'wBJJgR2SMvH', 'Mirash', 'Rahman', 'mirashrahman@gmail.com', 'mirash', 'be17fbe67a19f61d24845d43aa96389f', 'jz9Cy-yXddTM-zD5S4qk.jpg', 'gv3zSR1Dgcr', '93XJc-1sPVys-0Hyg3tX.jpg', 'BdKhFmm75gf', '0', 1, '2000-01-01', '', '', '', '', '', '', '', 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1605251853, 103136, 1607092582, 0, 1607256348, 0, 1607265179, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0),
+(6, 'wBJJgR2SMvH', 'Mirash', 'Rahman', 'mirashrahman@gmail.com', 'mirash', 'be17fbe67a19f61d24845d43aa96389f', 'jz9Cy-yXddTM-zD5S4qk.jpg', 'gv3zSR1Dgcr', '93XJc-1sPVys-0Hyg3tX.jpg', 'BdKhFmm75gf', '0', 1, '2000-01-01', '', '', '', '', '', '', '', 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1605251853, 103136, 1607799988, 0, 1608117028, 0, 1608123621, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0),
 (7, 'wGnfvDTF8zH', 'rumki', 'hasan', 'rumkihasan@gmail.com', 'rumkihasan', 'f06b104f660f8994b1949aff98de9622', 'f3vkY-YS5b8d-nd8d1qt.jpg', 'TZVnY4pNF4J', '', '', '0', 2, '2002-02-17', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605274092, 103136, 0, 0, 1605274092, 1737018400, 1605274135, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (8, 'sTjGrsHDjdH', 'Sultana', 'Hamid', 'sultanihamid@gmail.com', 'sultanahamid', 'f8fd28be7edf6bab5ffcd83ee51c7be6', 'x9QKm-NZvhXS-KYaNP3G.jpg', 'vyFyZjsRjRQ', '', '', '0', 2, '2004-10-14', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605274224, 103136, 0, 0, 1605274224, 1737018400, 1605274254, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (9, 'aRMxx3cwBwd', 'Rujina', 'Akter', 'rujinaakter@gmail.com', 'rujinaakter', 'e1da8bad5576c2fe24079fa28a7d559d', 'Kddnf-tkRDMB-DDk9xgY.jpg', 'f60tTDDm89s', '', '', '0', 2, '2005-06-05', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605274296, 103136, 0, 0, 1605274298, 1737018400, 1605274351, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
@@ -1880,6 +1889,20 @@ CREATE TABLE `users_blocked` (
   `type_blocked` tinyint(1) UNSIGNED NOT NULL COMMENT '1: General   2: Chat',
   `whendate` int(10) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `withdraws`
+--
+
+CREATE TABLE `withdraws` (
+  `id` int(11) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `amount` int(255) NOT NULL,
+  `status` int(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -2187,6 +2210,12 @@ ALTER TABLE `users_blocked`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `withdraws`
+--
+ALTER TABLE `withdraws`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -2394,7 +2423,7 @@ ALTER TABLE `recent_searches`
 -- AUTO_INCREMENT for table `referrals`
 --
 ALTER TABLE `referrals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `relations`
 --
@@ -2440,6 +2469,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users_blocked`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `withdraws`
+--
+ALTER TABLE `withdraws`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

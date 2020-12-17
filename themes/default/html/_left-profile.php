@@ -106,6 +106,7 @@
 
            
             <?php } ?>
+            <?= $D->invites_earn; ?>
 
 
             

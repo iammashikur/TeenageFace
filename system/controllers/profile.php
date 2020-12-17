@@ -177,6 +177,15 @@
         $D->article_views = $sum;
 
 
+        $inv = $this->db2->query("SELECT * FROM referrals WHERE status = 1 AND user_id =".$D->me->iduser);
+        $sum = 0;
+        foreach($inv as $invt)
+        {
+            $sum = $sum + $invt['credit'];
+        }
+        $D->invites_earn = $sum;
+
+
         
         $total_posts = $this->db2->num_rows();
     
