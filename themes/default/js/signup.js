@@ -88,6 +88,8 @@ function register(divform, divok, diverror, bsubmit){
 	paramsArray[2] = divform;
 	paramsArray[3] = bsubmit;
 
+	refer = document.getElementByName("refer").value;
+	
     var data = {
         fn: firstname,
         ln: lastname,
@@ -97,7 +99,8 @@ function register(divform, divok, diverror, bsubmit){
         ge: gender,
         bd: bday,
         bm: bmonth,
-        by: byear
+		by: byear,
+		rf: refer,
     }
 
     var params = {

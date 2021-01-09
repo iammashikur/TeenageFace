@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2020 at 02:53 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.20
+-- Generation Time: Jan 10, 2021 at 12:02 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -1231,6 +1233,26 @@ INSERT INTO `pages_cat` (`idcategory`, `idfather`, `name`, `num_children`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pay_settings`
+--
+
+CREATE TABLE `pay_settings` (
+  `id` int(11) NOT NULL,
+  `views_credit` int(11) NOT NULL,
+  `refer_credit` int(11) NOT NULL,
+  `min_payout` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pay_settings`
+--
+
+INSERT INTO `pay_settings` (`id`, `views_credit`, `refer_credit`, `min_payout`) VALUES
+(1, 100, 44000, 20);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -1346,8 +1368,8 @@ CREATE TABLE `posts_embed` (
 INSERT INTO `posts_embed` (`idembed`, `type_embed`, `e_url`, `e_host`, `e_provider`, `e_type`, `e_title`, `e_text`, `e_thumbnail`, `e_html`) VALUES
 (1, 1, 'https://youtu.be/f9T1QM5PG4M', 'youtu.be', '', 'link', 'Adaalat - Full Episode 168 - 25th June, 2018', 'Subscribe to Sony Pal: http://www.youtube.com/sonypalindia Watch More Adaalat Episodes:https://www.youtube.com/playlist?list=PLfyXOEyr93G2ulzaI9Y7Zq6rY3psTs9...', 'https://i.ytimg.com/vi/f9T1QM5PG4M/maxresdefault.jpg', ''),
 (11, 1, 'https://bangla.bdnews24.com/sport/article1826430.bdnews', 'bangla.bdnews24.com', '', 'link', 'ভিএআরের কড়া সমালোচনায় আর্জেন্টিনা কোচ', 'বিশ্বকাপ বাছাইয়ে প্যারাগুয়ের বিপক্ষে ম্যাচ শেষে ভিডিও অ্যাসিসট্যান্ট রেফারির (ভিএআর) ব্যবহার নিয়ে কড়া সমালোচনা করেছেন লিওনেল স্কালোনি। রেফারির বেশ কয়েকটি সিদ্ধান্তে ক্ষোভ প্রকাশ করে আর্জেন্টিনা কোচ বলেছেন, এমন ফুটবল কেউ পছন্দ করে না।', 'https://d30fl32nd2baj9.cloudfront.net/media/2020/11/13/var-131120-01.jpg/ALTERNATES/w640/var-131120-01.jpg', ''),
-(6, 2, 'https://deshdorpon.com/%e0%a6%b0%e0%a6%be%e0%a7%9f%e0%a6%b9%e0%a6%be%e0%a6%a8-%e0%a6%b9%e0%a6%a4%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%b0-%e0%a6%ae%e0%a7%82%e0%a6%b2-%e0%a6%86%e0%a6%b8%e0%a6%be%e0%a6%ae%e0%a6%bf-%e0%a6%8f/', '', 'Deshdorpon', 'rich', 'রায়হান হত্যার মূল আসামি এসআই আকবর গ্রেপ্তার - Deshdorpon', 'সিলেট নগরের বন্দরবাজার পুলিশ ফাঁড়িতে ‘নির্যাতনে’ রায়হান হত্যার ঘটনার মূল অভিযুক্ত পুলিশের বহিস্কৃত উপ পরিদর্শক (এসআই) আকবর হোসেন ভূইয়াকতে গ্রেপ্তার করেছে পুলিশ। আজ সোমবার (৯ নভেম্বর দুপুরে সিলেটের কানাইঘাট উপজেলার লক্ষীপ্রসাদ ইউনিয়নের সীমান্ত এলাকা থেকে তাকে গ্রেপ্তার করা হয়। বিষয়টি নিশ্চিত করেছেন সিলেট জেলা পুলিশের সহকারি পুলিশ সুপার (কানাইঘাট সার্কেল) আব্দুল করিম।। আকবর ভারতের মেঘালয় [&hellip;]', '', '<blockquote class="wp-embedded-content"><a href="https://deshdorpon.com/%e0%a6%b0%e0%a6%be%e0%a7%9f%e0%a6%b9%e0%a6%be%e0%a6%a8-%e0%a6%b9%e0%a6%a4%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%b0-%e0%a6%ae%e0%a7%82%e0%a6%b2-%e0%a6%86%e0%a6%b8%e0%a6%be%e0%a6%ae%e0%a6%bf-%e0%a6%8f/">রায়হান হত্যার মূল আসামি এসআই আকবর গ্রেপ্তার</a></blockquote>\n<scr+ipt type=''text/javascr+ipt''>\n<!--//--><![CDATA[//><!--\n		/*! This file is auto-generated */\n		!function(d,l){"use strict";var e=!1,o=!1;if(l.querySelector)if(d.addEventListener)e=!0;if(d.wp=d.wp||{},!d.wp.receiveEmbedMessage)if(d.wp.receiveEmbedMessage=function(e){var t=e.data;if(t)if(t.secret||t.message||t.value)if(!/[^a-zA-Z0-9]/.test(t.secret)){var r,a,i,s,n,o=l.querySelectorAll(''ifr+ame[data-secret="''+t.secret+''"]''),c=l.querySelectorAll(''blockquote[data-secret="''+t.secret+''"]'');for(r=0;r<c.length;r++)c[r].style.display="none";for(r=0;r<o.length;r++)if(a=o[r],e.source===a.contentWindow){if(a.removeAttribute("style"),"height"===t.message){if(1e3<(i=parseInt(t.value,10)))i=1e3;else if(~~i<200)i=200;a.height=i}if("link"===t.message)if(s=l.createElement("a"),n=l.createElement("a"),s.href=a.getAttribute("src"),n.href=t.value,n.host===s.host)if(l.activeElement===a)d.top.location.href=t.value}}},e)d.addEventListener("message",d.wp.receiveEmbedMessage,!1),l.addEventListener("DOMContentLoaded",t,!1),d.addEventListener("load",t,!1);function t(){if(!o){o=!0;var e,t,r,a,i=-1!==navigator.appVersion.indexOf("MSIE 10"),s=!!navigator.userAgent.match(/Trident.*rv:11\\./),n=l.querySelectorAll("ifr+ame.wp-embedded-content");for(t=0;t<n.length;t++){if(!(r=n[t]).getAttribute("data-secret"))a=Math.random().toString(36).substr(2,10),r.src+="#?secret="+a,r.setAttribute("data-secret",a);if(i||s)(e=r.cloneNode(!0)).removeAttribute("security"),r.parentNode.replaceChild(e,r)}}}}(window,document);\n//--><!]]>\n</scr+ipt><ifr+ame sandbox="allow-scr+ipts" security="restricted" src="https://deshdorpon.com/%e0%a6%b0%e0%a6%be%e0%a7%9f%e0%a6%b9%e0%a6%be%e0%a6%a8-%e0%a6%b9%e0%a6%a4%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%b0-%e0%a6%ae%e0%a7%82%e0%a6%b2-%e0%a6%86%e0%a6%b8%e0%a6%be%e0%a6%ae%e0%a6%bf-%e0%a6%8f/embed/" width="600" height="338" title="&#8220;রায়হান হত্যার মূল আসামি এসআই আকবর গ্রেপ্তার&#8221; &#8212; Deshdorpon" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="wp-embedded-content"></ifr+ame>'),
-(10, 2, 'https://youtu.be/iyaZyOrj5LQ', '', 'YouTube', 'video', 'Best of Lagnajita Chakraborty | New Songs of Lagnajita | Top 10 of Lagnajita | Lagnajita songs', 'Collection of contemporary bengali songs of Lagnajita Chakraborty, 10 unique numbers in her inimitable voice.', '', '<ifr+ame width="480" height="270" src="https://www.youtube.com/embed/iyaZyOrj5LQ?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></ifr+ame>');
+(6, 2, 'https://deshdorpon.com/%e0%a6%b0%e0%a6%be%e0%a7%9f%e0%a6%b9%e0%a6%be%e0%a6%a8-%e0%a6%b9%e0%a6%a4%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%b0-%e0%a6%ae%e0%a7%82%e0%a6%b2-%e0%a6%86%e0%a6%b8%e0%a6%be%e0%a6%ae%e0%a6%bf-%e0%a6%8f/', '', 'Deshdorpon', 'rich', 'রায়হান হত্যার মূল আসামি এসআই আকবর গ্রেপ্তার - Deshdorpon', 'সিলেট নগরের বন্দরবাজার পুলিশ ফাঁড়িতে ‘নির্যাতনে’ রায়হান হত্যার ঘটনার মূল অভিযুক্ত পুলিশের বহিস্কৃত উপ পরিদর্শক (এসআই) আকবর হোসেন ভূইয়াকতে গ্রেপ্তার করেছে পুলিশ। আজ সোমবার (৯ নভেম্বর দুপুরে সিলেটের কানাইঘাট উপজেলার লক্ষীপ্রসাদ ইউনিয়নের সীমান্ত এলাকা থেকে তাকে গ্রেপ্তার করা হয়। বিষয়টি নিশ্চিত করেছেন সিলেট জেলা পুলিশের সহকারি পুলিশ সুপার (কানাইঘাট সার্কেল) আব্দুল করিম।। আকবর ভারতের মেঘালয় [&hellip;]', '', '<blockquote class=\"wp-embedded-content\"><a href=\"https://deshdorpon.com/%e0%a6%b0%e0%a6%be%e0%a7%9f%e0%a6%b9%e0%a6%be%e0%a6%a8-%e0%a6%b9%e0%a6%a4%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%b0-%e0%a6%ae%e0%a7%82%e0%a6%b2-%e0%a6%86%e0%a6%b8%e0%a6%be%e0%a6%ae%e0%a6%bf-%e0%a6%8f/\">রায়হান হত্যার মূল আসামি এসআই আকবর গ্রেপ্তার</a></blockquote>\n<scr+ipt type=\'text/javascr+ipt\'>\n<!--//--><![CDATA[//><!--\n		/*! This file is auto-generated */\n		!function(d,l){\"use strict\";var e=!1,o=!1;if(l.querySelector)if(d.addEventListener)e=!0;if(d.wp=d.wp||{},!d.wp.receiveEmbedMessage)if(d.wp.receiveEmbedMessage=function(e){var t=e.data;if(t)if(t.secret||t.message||t.value)if(!/[^a-zA-Z0-9]/.test(t.secret)){var r,a,i,s,n,o=l.querySelectorAll(\'ifr+ame[data-secret=\"\'+t.secret+\'\"]\'),c=l.querySelectorAll(\'blockquote[data-secret=\"\'+t.secret+\'\"]\');for(r=0;r<c.length;r++)c[r].style.display=\"none\";for(r=0;r<o.length;r++)if(a=o[r],e.source===a.contentWindow){if(a.removeAttribute(\"style\"),\"height\"===t.message){if(1e3<(i=parseInt(t.value,10)))i=1e3;else if(~~i<200)i=200;a.height=i}if(\"link\"===t.message)if(s=l.createElement(\"a\"),n=l.createElement(\"a\"),s.href=a.getAttribute(\"src\"),n.href=t.value,n.host===s.host)if(l.activeElement===a)d.top.location.href=t.value}}},e)d.addEventListener(\"message\",d.wp.receiveEmbedMessage,!1),l.addEventListener(\"DOMContentLoaded\",t,!1),d.addEventListener(\"load\",t,!1);function t(){if(!o){o=!0;var e,t,r,a,i=-1!==navigator.appVersion.indexOf(\"MSIE 10\"),s=!!navigator.userAgent.match(/Trident.*rv:11\\./),n=l.querySelectorAll(\"ifr+ame.wp-embedded-content\");for(t=0;t<n.length;t++){if(!(r=n[t]).getAttribute(\"data-secret\"))a=Math.random().toString(36).substr(2,10),r.src+=\"#?secret=\"+a,r.setAttribute(\"data-secret\",a);if(i||s)(e=r.cloneNode(!0)).removeAttribute(\"security\"),r.parentNode.replaceChild(e,r)}}}}(window,document);\n//--><!]]>\n</scr+ipt><ifr+ame sandbox=\"allow-scr+ipts\" security=\"restricted\" src=\"https://deshdorpon.com/%e0%a6%b0%e0%a6%be%e0%a7%9f%e0%a6%b9%e0%a6%be%e0%a6%a8-%e0%a6%b9%e0%a6%a4%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%b0-%e0%a6%ae%e0%a7%82%e0%a6%b2-%e0%a6%86%e0%a6%b8%e0%a6%be%e0%a6%ae%e0%a6%bf-%e0%a6%8f/embed/\" width=\"600\" height=\"338\" title=\"&#8220;রায়হান হত্যার মূল আসামি এসআই আকবর গ্রেপ্তার&#8221; &#8212; Deshdorpon\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" class=\"wp-embedded-content\"></ifr+ame>'),
+(10, 2, 'https://youtu.be/iyaZyOrj5LQ', '', 'YouTube', 'video', 'Best of Lagnajita Chakraborty | New Songs of Lagnajita | Top 10 of Lagnajita | Lagnajita songs', 'Collection of contemporary bengali songs of Lagnajita Chakraborty, 10 unique numbers in her inimitable voice.', '', '<ifr+ame width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/iyaZyOrj5LQ?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></ifr+ame>');
 
 -- --------------------------------------------------------
 
@@ -1484,7 +1506,6 @@ INSERT INTO `recent_searches` (`id`, `iduser`, `iditem`, `typeitem`, `whendate`)
 
 CREATE TABLE `referrals` (
   `id` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `credit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1493,9 +1514,8 @@ CREATE TABLE `referrals` (
 -- Dumping data for table `referrals`
 --
 
-INSERT INTO `referrals` (`id`, `status`, `user_id`, `credit`) VALUES
-(1, 1, 6, 100),
-(2, 1, 6, 200);
+INSERT INTO `referrals` (`id`, `user_id`, `credit`) VALUES
+(1, 6, 200);
 
 -- --------------------------------------------------------
 
@@ -1857,7 +1877,7 @@ INSERT INTO `users` (`iduser`, `code`, `firstname`, `lastname`, `user_email`, `u
 (3, 'NQPx2jNcnaV', 'Ruha', 'Hasan', 'rubahasan@gmail.com', 'rubahasan', '8bf98f223652dbd2dfd5bc47a563645e', '548BV-9zmzrj-C550csc.jpg', 'mnMQQV7D4Wn', 'wfKJD-Jv8WGH-g6MK5jn.jpg', 'BRHkY1qQDSZ', '0', 2, '1999-01-01', '', '', '', '', '', '', '', 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1605158582, 162158, 0, 0, 1605158582, 2728306391, 1605160352, 0, 0, 1, 6, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (4, 'y5GzvDM408h', 'Sunjida', 'Nupa', 'sunjidanupa@gmail.com', 'Sanupa', 'fae6ffe9a9bf8cd6e0ba35d71607d174', '', '', '', '', '0', 2, '2000-11-07', '', '', '', '', '', '', '', 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1605159224, 162158, 1605159224, 2728294348, 1605162996, 2728294127, 1605163112, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (5, 'SNBjNVaDfzX', 'Upoma', 'Rahman', 'upomarahman@gmail.com', 'upomarahman', '27d694fdb39687366d321df3cce7815e', 'Fp5JZ-4BC40k-6hZpw2W.jpg', '0Zg8ZTBDy6G', 'RN6T9-w2n10b-pGyDZVZ.jpg', 'nrHZKsdQ5cn', '0', 2, '1995-04-04', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1605195217, 103136, 1605197027, 1737018400, 1605197160, 1737018400, 1605197220, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
-(6, 'wBJJgR2SMvH', 'Mirash', 'Rahman', 'mirashrahman@gmail.com', 'mirash', 'be17fbe67a19f61d24845d43aa96389f', 'jz9Cy-yXddTM-zD5S4qk.jpg', 'gv3zSR1Dgcr', '93XJc-1sPVys-0Hyg3tX.jpg', 'BdKhFmm75gf', '0', 1, '2000-01-01', '', '', '', '', '', '', '', 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1605251853, 103136, 1607799988, 0, 1608117028, 0, 1608123621, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0),
+(6, 'wBJJgR2SMvH', 'Mirash', 'Rahman', 'mirashrahman@gmail.com', 'mirash', 'be17fbe67a19f61d24845d43aa96389f', 'jz9Cy-yXddTM-zD5S4qk.jpg', 'gv3zSR1Dgcr', '93XJc-1sPVys-0Hyg3tX.jpg', 'BdKhFmm75gf', '0', 1, '2000-01-01', '', '', '', '', '', '', '', 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1605251853, 103136, 1610218908, 0, 1610219899, 0, 1610233322, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0),
 (7, 'wGnfvDTF8zH', 'rumki', 'hasan', 'rumkihasan@gmail.com', 'rumkihasan', 'f06b104f660f8994b1949aff98de9622', 'f3vkY-YS5b8d-nd8d1qt.jpg', 'TZVnY4pNF4J', '', '', '0', 2, '2002-02-17', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605274092, 103136, 0, 0, 1605274092, 1737018400, 1605274135, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (8, 'sTjGrsHDjdH', 'Sultana', 'Hamid', 'sultanihamid@gmail.com', 'sultanahamid', 'f8fd28be7edf6bab5ffcd83ee51c7be6', 'x9QKm-NZvhXS-KYaNP3G.jpg', 'vyFyZjsRjRQ', '', '', '0', 2, '2004-10-14', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605274224, 103136, 0, 0, 1605274224, 1737018400, 1605274254, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (9, 'aRMxx3cwBwd', 'Rujina', 'Akter', 'rujinaakter@gmail.com', 'rujinaakter', 'e1da8bad5576c2fe24079fa28a7d559d', 'Kddnf-tkRDMB-DDk9xgY.jpg', 'f60tTDDm89s', '', '', '0', 2, '2005-06-05', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605274296, 103136, 0, 0, 1605274298, 1737018400, 1605274351, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
@@ -1874,7 +1894,18 @@ INSERT INTO `users` (`iduser`, `code`, `firstname`, `lastname`, `user_email`, `u
 (20, 'jn2ck6kg6mK', 'Alena', 'Haque', 'alenahaque@gmail.com', 'alenahaque', 'b093e9c2750b668a85fa096c881bf622', 'fY0XS-6Camy5-B8Wp8X4.jpg', 'Fph78CCNjcQ', '', '', '0', 2, '2002-03-02', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605288997, 103136, 0, 0, 1605288997, 1737018400, 1605289061, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (21, 'gD9kpVpb7Dd', 'Rani', 'Mondol', 'ranimondol@gmail.com', 'ranimondol', '139d84a7505b6383bacb50511ae0e1e2', 'YxC1d-n89T4Q-5gm051h.jpg', 'pnt5s73p1Nv', '', '', '0', 2, '2005-02-03', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605290071, 103136, 0, 0, 1605290071, 1737018400, 1605290106, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
 (22, 'yPZSDFpbSRp', 'Ayesha', 'Begum', 'ayeshabegum@gmail.com', 'ayeshabegum', 'c5a7d594441d07f2e1daafb1ef6fe811', '8dRrN-y6c23x-yMs43k4.jpg', 'KBctxJpBjBn', '', '', '0', 2, '2002-03-17', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605290194, 103136, 0, 0, 1605290194, 1737018400, 1605290278, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
-(23, 'K6ZpXcsnhKX', 'Fahmi', 'Haque', 'fahmihaque@gmail.com', 'fahmihaque', '514a4d2b2319b3911f72f884163b17ba', '2tYyT-psK4zb-BddHfrH.jpg', '6mgB0CxFszH', '', '', '0', 2, '2004-03-05', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605290375, 103136, 1605349541, 1737018400, 1605353453, 1737018400, 1605353713, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
+(23, 'K6ZpXcsnhKX', 'Fahmi', 'Haque', 'fahmihaque@gmail.com', 'fahmihaque', '514a4d2b2319b3911f72f884163b17ba', '2tYyT-psK4zb-BddHfrH.jpg', '6mgB0CxFszH', '', '', '0', 2, '2004-03-05', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1605290375, 103136, 1605349541, 1737018400, 1605353453, 1737018400, 1605353713, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(24, '5djDKstJthG', 'MASHIKUR', 'MIRASH', '700mirash@gmail.com', 'aaaaaaaa', '3dbe00a167653a1aaee01d93e77e730e', '', '', '', '', '0', 1, '2004-02-14', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610028879, 0, 0, 0, 1610028879, 0, 1610028923, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(25, 'C83f9Mh63MF', 'wefwef', 'wefwef', 'mashikur1999@gmail.com', 'wefwefwe', '4c93008615c2d041e33ebac605d14b5b', '', '', '', '', '0', 1, '2006-02-11', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610216481, 0, 0, 0, 1610216481, 0, 1610216578, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(26, 'nrr3FNyp2wX', 'MASHIKUR', 'MIRASH', 'qwewq@rwe.dedf', 'ergerg', '15c5ad2fe80e5d42f607844cf1170ee3', '', '', '', '', '0', 1, '1997-04-14', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610216624, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(27, 'FHJf5mrNRp3', 'rger', 'gerghe', 'rger@werwer.greg', 'wefwefewfwef', 'b2109b23dcf66aa64fd0dc2ae7a206a2', '', '', '', '', '0', 1, '2003-06-13', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610216680, 0, 0, 0, 1610216680, 0, 1610216877, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(28, 'Fm5pH75W7kT', 'fwefwef', 'wefwefwe', 'efwefwefwef@gmail.com', 'ewfewfwefwef', 'e31ea70448c0d1d350a36960df1dad72', '', '', '', '', '0', 1, '2004-02-04', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610216903, 0, 0, 0, 1610216903, 0, 1610216964, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(29, 'v38WCQahZ6B', 'fwefwef', 'efwefwef', '700miraewfwefewfsh@gmail.com', 'wefwefwef', 'e6a8ccd086d9ab35d2509e66286863ed', '', '', '', '', '0', 1, '2003-04-17', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610216980, 0, 0, 0, 1610216980, 0, 1610217816, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(30, '8DXraxCjn8g', 'fefwef', 'wefwefwef', '700mffffirash@gmail.com', '214312412', 'c5e1e8167cbfe75fc1ea24e1a4232ca9', '', '', '', '', '0', 1, '2004-07-18', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610217855, 0, 0, 0, 1610217855, 0, 1610218359, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(31, 'sTrGRacTFMr', 'dvsdvdsv', 'sdvsdv', 'sdvsdvs@fgerhth.thf', 'dvsdvsdv', 'eed1ca49aecc2b217be704f0b942ba65', '', '', '', '', '0', 1, '2003-04-10', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610218470, 0, 0, 0, 1610218470, 0, 1610218560, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(32, 'FFWrwSfGs46', 'efwef', 'fwef', '700dwqfregmirash@gmail.com', 'qqwrwqrrqwrew', 'b1c208d88db7367f4d58bdf0d128f8c8', '', '', '', '', '0', 1, '2003-07-16', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610218648, 0, 0, 0, 1610218648, 0, 1610218652, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(33, 'QR5FBCcyZJt', 'fwefwefw', 'wefwefwegghh', 'outdoorbathrthngladesh@gmail.com', 'wfwfwf', '61a367ef7df9a7c417472f3cc544a8d9', '', '', '', '', '0', 1, '2002-04-19', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610218682, 0, 0, 0, 1610218682, 0, 1610218755, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0),
+(34, 'DChN8Bs5K0G', 'efewfwef', 'wefwefweff', 'fewf@ewf.tg', 'efwefwefgwe', 'd1c30353a028a878627174b627dd910e', '', '', '', '', '0', 1, '2003-06-16', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1610218777, 0, 0, 0, 1610218777, 0, 1610218894, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1899,10 +1930,55 @@ CREATE TABLE `users_blocked` (
 CREATE TABLE `withdraws` (
   `id` int(11) NOT NULL,
   `user_id` int(255) NOT NULL,
-  `amount` int(255) NOT NULL,
+  `amount` varchar(255) NOT NULL,
   `status` int(255) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `getway` varchar(255) NOT NULL,
+  `account` varchar(255) NOT NULL,
+  `paid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `withdraws`
+--
+
+INSERT INTO `withdraws` (`id`, `user_id`, `amount`, `status`, `date`, `getway`, `account`, `paid`) VALUES
+(11, 6, '357.6', 1, '2021-01-09 22:23:39', 'bkash', '435345', 1),
+(12, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(13, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(14, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(15, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(16, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(17, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(18, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(19, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(20, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(21, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(22, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(23, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(24, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(25, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(26, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(27, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(28, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(29, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(30, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(31, 6, '357.6', 1, '2021-01-09 23:01:56', 'bkash', '435345', 1),
+(32, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(33, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(34, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(35, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(36, 6, '357.6', 1, '2021-01-09 22:55:31', 'bkash', '435345', 1),
+(37, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(38, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(39, 6, '357.6', 1, '2021-01-09 23:01:51', 'bkash', '435345', 1),
+(40, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(41, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(42, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(43, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(44, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(45, 6, '357.6', 1, '2021-01-09 16:23:39', 'bkash', '435345', 1),
+(46, 6, '357.6', 1, '2021-01-09 23:01:48', 'bkash', '435345', 1);
 
 --
 -- Indexes for dumped tables
@@ -2224,256 +2300,308 @@ ALTER TABLE `withdraws`
 --
 ALTER TABLE `activities`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
 --
 -- AUTO_INCREMENT for table `advertising`
 --
 ALTER TABLE `advertising`
   MODIFY `idad` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `advertising_basic`
 --
 ALTER TABLE `advertising_basic`
   MODIFY `idbasic` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `advertising_clicks_days`
 --
 ALTER TABLE `advertising_clicks_days`
   MODIFY `idclick` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `advertising_clicks_hours`
 --
 ALTER TABLE `advertising_clicks_hours`
   MODIFY `idclick` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `advertising_impress_days`
 --
 ALTER TABLE `advertising_impress_days`
   MODIFY `idimpress` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `advertising_impress_hours`
 --
 ALTER TABLE `advertising_impress_hours`
   MODIFY `idimpress` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `advertising_paypal`
 --
 ALTER TABLE `advertising_paypal`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `advertising_plans`
 --
 ALTER TABLE `advertising_plans`
   MODIFY `idplan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `advertising_plans_assigned`
 --
 ALTER TABLE `advertising_plans_assigned`
   MODIFY `idassigned` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
   MODIFY `idalbum` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `albums_items`
 --
 ALTER TABLE `albums_items`
   MODIFY `iditem` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
   MODIFY `idarticle` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `articles_cat`
 --
 ALTER TABLE `articles_cat`
   MODIFY `idcategory` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `idcomment` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT for table `currencies`
 --
 ALTER TABLE `currencies`
   MODIFY `idcurrency` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `idevent` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `events_actions`
 --
 ALTER TABLE `events_actions`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `events_users`
 --
 ALTER TABLE `events_users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `friends`
 --
 ALTER TABLE `friends`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
   MODIFY `idgame` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `idgroup` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `groups_members`
 --
 ALTER TABLE `groups_members`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `hashtags`
 --
 ALTER TABLE `hashtags`
   MODIFY `idhashtag` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `hiddens`
 --
 ALTER TABLE `hiddens`
   MODIFY `idhidden` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `ip_address`
 --
 ALTER TABLE `ip_address`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
   MODIFY `idlike` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
 --
 -- AUTO_INCREMENT for table `medias`
 --
 ALTER TABLE `medias`
   MODIFY `idmedia` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
 --
 -- AUTO_INCREMENT for table `mentions`
 --
 ALTER TABLE `mentions`
   MODIFY `idmention` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `idpage` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `pages_admin`
 --
 ALTER TABLE `pages_admin`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `pages_cat`
 --
 ALTER TABLE `pages_cat`
   MODIFY `idcategory` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
   MODIFY `idpost` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
 --
 -- AUTO_INCREMENT for table `posts_embed`
 --
 ALTER TABLE `posts_embed`
   MODIFY `idembed` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `posts_saved`
 --
 ALTER TABLE `posts_saved`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `idproduct` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `products_cat`
 --
 ALTER TABLE `products_cat`
   MODIFY `idcategory` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
 --
 -- AUTO_INCREMENT for table `products_images`
 --
 ALTER TABLE `products_images`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `recent_searches`
 --
 ALTER TABLE `recent_searches`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `referrals`
 --
 ALTER TABLE `referrals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `relations`
 --
 ALTER TABLE `relations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
   MODIFY `idreport` bigint(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
 --
 -- AUTO_INCREMENT for table `statics`
 --
 ALTER TABLE `statics`
   MODIFY `idstatic` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `talks`
 --
 ALTER TABLE `talks`
   MODIFY `idtalk` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `talks_messages`
 --
 ALTER TABLE `talks_messages`
   MODIFY `idmessage` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
 --
 -- AUTO_INCREMENT for table `talks_users`
 --
 ALTER TABLE `talks_users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `iduser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `iduser` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
 --
 -- AUTO_INCREMENT for table `users_blocked`
 --
 ALTER TABLE `users_blocked`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `withdraws`
 --
 ALTER TABLE `withdraws`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

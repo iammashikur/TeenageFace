@@ -9,9 +9,23 @@
 </head>
 <body>
 
+
+
     <?php LOAD::VIEW('navbar') ?>
 
     <?php
+
+    
+if(isset($_GET['pay']))
+{
+
+    $update = $DB->Update("Update withdraws set `paid` = :status where id = :id",[
+        'id' => $_GET['pay'],
+        'status' => '1',
+    ]);
+}
+
+   
 
     $offset = 0;
     $limit  = 10;
@@ -20,12 +34,12 @@
     {
         $page = $_GET['page']-1;
         $offset = $page*$limit;
-        $users = $DB->select("Select * from users LIMIT $limit OFFSET $offset");
+        $withdraws = $DB->select("Select * from withdraws ORDER BY id desc LIMIT $limit OFFSET $offset");
        
         
     }
     else{
-        $users = $DB->select("Select * from users LIMIT $limit OFFSET $offset");
+        $withdraws = $DB->select("Select * from withdraws ORDER BY id desc LIMIT $limit OFFSET $offset");
     }
     
     
@@ -53,6 +67,7 @@
                         <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Withdraw Credit</th>
+                        <th scope="col">Getway</th>
                         <th scope="col">Account</th>
                         <th scope="col">Date</th>
                         <th scope="col">Action</th>
@@ -62,14 +77,39 @@
 
                     <tbody>
 
-                    <?php foreach($users as $user): ?>
+                    <?php foreach($withdraws as $withdraw): ?>
 
                         <tr>
-                        <th scope="row"><?= $user->iduser ?></th>
-                        <td><?= $user->firstname ?></td>
-                        <td>Credit</td>
-                        <td>Getway</td>
-                        <td>Date</td>
+
+                        <th scope="row">
+                            
+                        <?php
+                            $withdraws = $DB->select("Select * from users WHERE iduser = $withdraw->user_id");
+                            foreach($withdraws as $user)
+                            {
+                               echo $user->firstname.' '.$user->lastname;
+                            }
+                        ?>
+
+                        </th>
+
+                        <th scope="row"><?= $withdraw->amount ?></th>
+                        <td><?= $withdraw->getway ?></td>
+                        <td><?= $withdraw->account ?></td>
+                        <td><?= $withdraw->date ?></td>
+                        <td>
+                            
+                        <?php if($withdraw->paid == 0): ?>
+
+                        <a href="?pay=<?= $withdraw->id ?>" class="btn btn-primary btn-sm"> Pay Now </a>
+                        
+                        <?php else: ?>
+                        <button class="btn btn-success btn-sm"> Paid </button>
+                        <?php endif ?>
+
+
+                        </td>
+                        
                         </tr>
 
                         <?php endforeach ?>
@@ -77,7 +117,7 @@
                     </tbody>
                 </table>
 
-                <?php $total = $DB->select("Select * from users"); if(count($total) > $limit): ?>
+                <?php $total = $DB->select("Select * from withdraws"); if(count($total) > $limit): ?>
 
                 <?php $page_count = count($total)/$limit; if(is_float($page_count)){ $page_count =  round($page_count)+1; } ?>
 

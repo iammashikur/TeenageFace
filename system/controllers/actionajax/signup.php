@@ -31,7 +31,25 @@
 	$bday = isset($_POST['bd']) ? ($_POST['bd']) : '';
 	$bmonth = isset($_POST['bm']) ? ($_POST['bm']) : '';
 	$byear = isset($_POST['by']) ? ($_POST['by']) : '';
-	$gender = isset($_POST['ge']) ? ($_POST['ge']) : '';
+    $gender = isset($_POST['ge']) ? ($_POST['ge']) : '';
+    $refer = isset($_POST['rf']) ? (trim($_POST['rf'])) : '';
+
+    
+    
+    if($refer !== 'x')
+    {
+
+        $pay_set = $db2->query("SELECT * FROM pay_settings WHERE id = 1");
+
+        foreach($pay_set as $payment_sett)
+        {
+            $credit = $payment_sett['refer_credit'];
+        }
+
+        $db2->query("INSERT INTO referrals (user_id, credit)
+        VALUES ('$refer', '$credit')");
+
+    }
 
 	if (!$error && empty($firstname)) {
 		$error = TRUE;
@@ -140,6 +158,7 @@
 
             $db2->query("INSERT INTO users SET code='".$code."', firstname='".$firstname."', lastname='".$lastname."', user_username='".$username."', user_password='".$password."', user_email='" . $email."',".$cadBirthday." gender=".$gender.$cadValidation.", ipregister='" . $ip . "', registerdate='" . time() . "'");
 
+        
             if ($K->SIGNUP_WITH_VALIDATION) {
 
                 $page->loadLanguage('email.php');

@@ -1,12 +1,14 @@
 <?php
 session_start();
 
-if(isset($_POST['submit'])){
 
-    echo 'something posted';
+if (!empty($_SESSION["user"])) {
+
+    if($_SESSION["user"] !== $CFG->PM_USER && $_SESSION["pass"] !== $CFG->PM_PASS){
+        return header("LOCATION:".LOAD::PAGE('login')) ;
+    }
 
 }
-
-if (empty($_SESSION["user_id"])) {
+else{
     return header("LOCATION:".LOAD::PAGE('login')) ;
 }

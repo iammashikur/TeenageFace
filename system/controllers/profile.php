@@ -166,18 +166,28 @@
         ORDER BY idpost DESC 
         LIMIT 0, ".($K->ACTIVITIES_PER_PAGE + 1));
 
-        //
+        
+
+        
+        $pay_settings = $this->db2->query("SELECT * FROM pay_settings WHERE id = 1");
+        foreach($pay_settings as $pay){
+            $D->views_credit = $pay['views_credit'];
+            $D->refer_credit = $pay['refer_credit'];
+            $D->min_payout = $pay['min_payout'];
+        }
 
         $artic = $this->db2->query("SELECT * FROM articles WHERE idwriter =".$D->me->iduser);
+        
         $sum = 0;
         foreach($artic as $post)
         {
             $sum = $sum + $post['numviews'];
         }
+        
         $D->article_views = $sum;
 
 
-        $inv = $this->db2->query("SELECT * FROM referrals WHERE status = 1 AND user_id =".$D->me->iduser);
+        $inv = $this->db2->query("SELECT * FROM referrals WHERE user_id =".$D->me->iduser);
         $sum = 0;
         foreach($inv as $invt)
         {

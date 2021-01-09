@@ -43,14 +43,14 @@
 
     <div class="clear" style="margin-top:10px"></div>
 
-
+    <?php if ($D->article_views > 0 && $D->me->iduser == $D->iduser) { ?>          
     <div class="space-box" style="background:#3191f5; color:#fff">
         <div class="body-space-box">
            
 
     
 
-            <?php if ($D->article_views > 0 && $D->me->iduser == $D->iduser) { ?>
+            
 
             <?php 
 
@@ -76,9 +76,9 @@
                     return $num;
                 }
 
-                function earn_bdt($views){
+                function earn_bdt($views, $D){
 
-                    return $views*0.05." BDT";
+                    return $D->views_credit/100*$views." BDT";
 
                 }
                 
@@ -97,7 +97,7 @@
 
 
                 <div style="display:flex">
-                <p style="float:left; margin:auto"><?php echo earn_bdt($D->article_views)?></p>
+                <p style="float:left; margin:auto"><?php echo earn_bdt($D->article_views, $D)?></p>
                 <a href="<?php echo $K->SITE_URL.$D->username?>/earnings" class="withdraw-btn">Withdraw</a>
                 </div>
 
@@ -105,15 +105,16 @@
       
 
            
-            <?php } ?>
-            <?= $D->invites_earn; ?>
+           
 
 
+          
             
         
         </div>
 
     </div>
+    <?php } ?>
 
     <div class="clear"></div>
         

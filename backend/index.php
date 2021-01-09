@@ -1,5 +1,5 @@
 <?php require_once('config.php') ?>
-<?php require_once('system/auth.php') ?>
+<?php require_once('system/auth.php'); header("LOCATION: ".LOAD::PAGE('payments'))  ?>
 
 <!DOCTYPE html>
 <html lang="en">

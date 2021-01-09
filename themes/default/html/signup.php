@@ -10,7 +10,21 @@
         <div id="titleform"><?php echo $this->lang('signup_title')?></div>
         <div id="msgfree"><?php echo $this->lang('signup_msgfree')?></div>
         <div id="area-form">
+
             <form id="formregister" name="formregister" method="post">
+
+
+            <?php if(isset($_GET['refer'])):?>
+
+            <input name="refer" type="hidden" value="<?= $_GET['refer'] ?>">
+
+            <?php else:?>
+
+            <input name="refer" type="hidden" value="x">
+
+            <?php endif ?>
+
+
             <div><?php echo $this->lang('signup_firstname')?></div>
             <div><input type="text" class="boxinput" name="firstname" id="firstname" placeholder="<?php echo $this->lang('signup_firstname')?>"></div>
             <div id="alert-firstname" class="alert alert-red hide"></div>
