@@ -104,14 +104,27 @@ function getHTMLBoxChat(codechat, namefriend, username) {
     cadHtml = cadHtml + '            <div class="menustickers-chat"><div id="box-stickrs-' + codechat + '" class="slimscrollers">' + cad_stickers + '</div></div>';
     
     cadHtml = cadHtml + '            <div class="one-tool-chat tright">';
+    cadHtml = cadHtml + '                <img onclick="sendMessageChat(\'' + codechat + '\', \'00\')" style="width:25px" class="ico-tool-chat" src="' + _SITE_URL + 'themes/' + _THEME + '/imgs/ico-send.png">';
+    cadHtml = cadHtml + '            </div>';
+    
+    
+    cadHtml = cadHtml + '            <div class="one-tool-chat tright">';
     cadHtml = cadHtml + '                <img onclick="insertSticker(\'' + codechat + '\', \'00\');" class="ico-tool-chat" src="' + _SITE_URL + 'themes/' + _THEME + '/imgs/cha-ico-ok.png">';
     cadHtml = cadHtml + '            </div>';
+
+
 
     cadHtml = cadHtml + '            <div class="clear"></div>';
 
     cadHtml = cadHtml + '        </div>';
 
+
+
+
     cadHtml = cadHtml + '        <script>';
+
+
+
     cadHtml = cadHtml + '        $("#t_input_chat-'+ codechat +'").on("keydown", function (event) {';
     cadHtml = cadHtml + '            if (event.keyCode == 13 && event.shiftKey == 0) {';
     cadHtml = cadHtml + '                event.preventDefault();';
@@ -195,6 +208,10 @@ function getHTMLBoxChat(codechat, namefriend, username) {
     
     return cadHtml;
 }
+
+
+    
+
 
 function getHTMLUserHidden(codechat) {
     namefriend = $('#bch_' + codechat + ' .title-bar-name').html();

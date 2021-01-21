@@ -67,30 +67,6 @@ foreach($inv as $in)
 }
 
 
-if(isset($_GET['payout'])){
-
-   $current = earn_bdt($D->article_views, $D)+$ref_inc-$payouts;
-
-   if($current >= $D->min_payout){
-
-
-      $pay_getway = $_GET['getway'];
-      $pay_account = $_GET['account'];
-      $user = $D->me->iduser;
-      $this->db2->query("INSERT INTO withdraws (user_id, amount, status, paid , date, getway, account)
-      VALUES ('$user', '$current', '1' , '0', 'time()', '$pay_getway', '$pay_account')");
-
-
-      echo '<div style="margin-bottom:20px;padding:8px; background:black; color:green">Payout '.$current.' BDT is Processing</div>';
-   }
-   else{
-      echo '<div style="margin-bottom:20px;padding:8px; background:black; color:#fff">Minimum Payout '.$D->min_payout.' BDT </div>';
-   }
-
-   
-}
-
-
 ?>
 
 
@@ -110,8 +86,6 @@ if(isset($_GET['payout'])){
         $("#payment").toggle();
     });
 
-
-
     function myFunction() {
         var copyText = document.getElementById("myInput");
         copyText.select();
@@ -121,14 +95,36 @@ if(isset($_GET['payout'])){
     }
     </script>
 
-    <input style="
-   margin-left:5px;
-   padding: 8px;
-    border: inherit;
-    background: cornflowerblue;
-    border-radius: 15px;
-    width: 200px;" type="text" value="<?= $K->SITE_URL.'signup?refer='.$D->me->iduser?>" id="myInput">
-    <button onclick="myFunction()" class="withdraw">COPY</button>
+    <div style="padding: 5px;">
+    <?php
+    
+    if(isset($_GET['payout'])){
+
+        $current = earn_bdt($D->article_views, $D)+$ref_inc-$payouts;
+     
+        if($current >= $D->min_payout){
+     
+     
+           $pay_getway = $_GET['getway'];
+           $pay_account = $_GET['account'];
+           $user = $D->me->iduser;
+           $this->db2->query("INSERT INTO withdraws (user_id, amount, status, paid , date, getway, account)
+           VALUES ('$user', '$current', '1' , '0', 'time()', '$pay_getway', '$pay_account')");
+     
+     
+           echo '<div style="margin-bottom:20px;padding:14px; background:black; color:green;  border-radius: 5px;">Payout '.$current.' BDT is Processing</div>';
+        }
+        else{
+           echo '<div style="margin-bottom:20px;padding:14px; background:black; color:#fff; border-radius: 5px;">Minimum Payout '.$D->min_payout.' BDT </div>';
+        }
+     
+        
+     }
+
+    ?></div>
+
+
+    
 
 
     <div id="payment" style="display: none; margin-left:5px; margin-top:30px;margin-bottom:50px; ">
@@ -147,10 +143,44 @@ if(isset($_GET['payout'])){
 
             <input style="padding: 8px;" type="text" name="account" placeholder="Account Number" required>
 
-            <button name="payout" type="submit" style="text-decoration: none;" class="withdraw">Payout</button>
+            <button name="payout" type="submit" style="text-decoration: none;padding: 8px;">Payout</button>
 
 
         </form>
+    </div>
+
+
+    <div style="padding:5px">
+
+        <div style="background: #e2e2e2; padding:10px;
+    border-radius: 5px;">
+
+            <h1 style="padding:5px; margin-bottom:10px; font-weight:600;color:#64d5ed;">
+                Earn
+            </h1>
+
+            <input style="
+   margin-left:5px;
+   padding: 8px;
+    border: inherit;
+    background: #f3f3f3;
+    width: 200px;" type="text" value="<?= $K->SITE_URL.'signup?refer='.$D->me->iduser?>" id="myInput">
+            <button onclick="myFunction()" style="margin-left:2px;
+   padding: 8px;
+    border: inherit;
+    background: #64d5ed;
+    color: white;
+    font-weight: 600;">COPY</button>
+
+            <h1 style="padding:5px; margin-top:10px;">
+                Lorem Ipsum Dolor Sit Emmet..
+            </h1>
+
+
+
+
+        </div>
+
     </div>
 
     <div class="row">
@@ -198,39 +228,44 @@ if(isset($_GET['payout'])){
     <?php $wd = $this->db2->query("SELECT * FROM withdraws WHERE status= 1 AND user_id =".$D->me->iduser." ORDER BY id desc"); ?>
 
     <style>
-#history {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  padding: 5px;
-  margin-top: 20px;
-}
+    #history {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        padding: 5px;
+        margin-top: 20px;
+    }
 
-#history td, #history th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+    #history td,
+    #history th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
 
-#history tr:nth-child(even){background-color: #f2f2f2;}
+    #history tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-#history tr:hover {background-color: #ddd;}
+    #history tr:hover {
+        background-color: #ddd;
+    }
 
-#history th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+    #history th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+    </style>
 
     <table id="history">
         <tr>
-         <th>Amount</th>
-         <th>Getwat</th>
-         <th>Account</th>
-         <th>Date</th>
-         <th>Status</th>
+            <th>Amount</th>
+            <th>Getwat</th>
+            <th>Account</th>
+            <th>Date</th>
+            <th>Status</th>
         </tr>
 
         <?php foreach($wd as $dw): ?>
@@ -241,7 +276,7 @@ if(isset($_GET['payout'])){
             <td><?= $dw['account'] ?></td>
             <td><?= $dw['date'] ?></td>
             <td>
-            <?php
+                <?php
             
             if($dw['paid'] == 0)
             {

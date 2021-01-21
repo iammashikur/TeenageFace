@@ -366,7 +366,20 @@
                     
                     <a href="<?php echo $K->SITE_URL.$D->username?>/photos" <?php echo($D->_IS_LOGGED ? 'rel="phantom" target="profile-content-area"' : '') ?> class="one-option no_in_tablet no_in_movil no_in_movil_land"><?php echo($this->lang('profile_txt_photos'));?></a>
 
-                    <a href="<?php echo $K->SITE_URL.$D->username?>/earnings" class="one-option no_in_tablet no_in_movil no_in_movil_land">Earnings</a>
+                    <?php
+                     $artic = $this->db2->query("SELECT * FROM articles WHERE idwriter =".$D->me->iduser);
+        
+                     $sum = 0;
+                     foreach($artic as $post)
+                     {
+                         $sum = $sum + $post['numviews'];
+                     }
+                     
+                     $D->article_views = $sum;
+                    ?>
+                    <?php if ($D->article_views > 0 && $D->me->iduser == $D->iduser) { ?>
+                    <a href="<?php echo $K->SITE_URL.$D->username?>/earnings" class="one-option no_in_tablet no_in_movil no_in_movil_land">My Wallet</a>
+                    <?php }  ?>
                     
                     <a href="<?php echo $K->SITE_URL.$D->username?>" id="menu-more-profile-link" <?php echo($D->_IS_LOGGED ? 'rel="phantom" target="profile-content-area"' : '') ?> class="one-option"><span><?php echo($this->lang('profile_txt_more'));?></span> <span><img src="<?php echo getImageTheme('ico-more-menu.png')?>"></span></a>
                     

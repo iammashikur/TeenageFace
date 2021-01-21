@@ -10,7 +10,7 @@
 * Copyright (c) 2018 iSocial. All rights reserved.
 ********************************************************
 */
-	if (!$D->_IS_LOGGED) $this->globalRedirect('login');
+	// if (!$D->_IS_LOGGED) $this->globalRedirect('login');
 
 	$this->loadLanguage('global.php');
 	$this->loadLanguage('dashboard.php');

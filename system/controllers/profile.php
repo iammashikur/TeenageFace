@@ -10,6 +10,12 @@
 * Copyright (c) 2018 iSocial. All rights reserved.
 ********************************************************
 */
+
+if (!$D->_IS_LOGGED){
+    $this->globalRedirect('login');
+} 
+
+
     $D->_IN_PROFILE = TRUE;
     
     if ($D->_IS_LOGGED) {

@@ -16,11 +16,11 @@
 
             <?php if(isset($_GET['refer'])):?>
 
-            <input name="refer" type="hidden" value="<?= $_GET['refer'] ?>">
+            <input id="refer" name="refer" type="hidden" value="<?= $_GET['refer'] ?>">
 
             <?php else:?>
 
-            <input name="refer" type="hidden" value="x">
+            <input id="refer" name="refer" type="hidden" value="x">
 
             <?php endif ?>
 

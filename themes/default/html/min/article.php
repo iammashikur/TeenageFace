@@ -1,5 +1,8 @@
                <script>_ID_MENU_LEFT = '<?php echo(isset($D->id_menu) ? $D->id_menu : '')?>';</script>
+               
                <?php if(isset($D->js_script_min)) echo $D->js_script_min;?>
+
+               <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=60094aaf8bb33e00116e6fbc&product=inline-share-buttons' async='async'></script>
                
                 <div id="dashboard-special-center" style="margin-bottom:30px;">
 
@@ -29,7 +32,10 @@
                                 <a href="<?php echo $K->SITE_URL?>#" class="zoomeer-basic" data-image="<?php echo $D->article->photo_max; ?>">
                                 <img src="<?php echo $D->article->photo_normal; ?>" alt="">
                                 </a>
-                            </div>  
+                            </div> 
+
+                            <div style="margin-top: 20px;">
+                            <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END --></div>
                             
                             <div class="thebody">
                                 <div class="thecontent"><?php echo $D->article->text_article; ?></div>

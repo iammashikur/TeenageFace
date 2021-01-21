@@ -412,7 +412,7 @@ class post
         
         $D->activity_message_cut = '';
         
-        if (strlen($this->post_message) > $K->CHARS_VIEW_IN_POST) $D->activity_message_cut = analyzeMessage(str_cut($this->post_message, $K->CHARS_VIEW_IN_POST));
+        if (strlen($this->post_message) > $K->CHARS_VIEW_IN_POST) $D->activity_message_cut = analyzeMessage(word_limiter($this->post_message, 20));
         
         $D->activity_message = analyzeMessage($this->post_message);
         

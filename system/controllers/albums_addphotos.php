@@ -55,6 +55,7 @@
 	if ($D->isPhantom) {
 
         $html = '';
+        
         $this->load_extract_controller('_dashboard-menu-left');
 		
         if ($D->layout_size == 'min') {

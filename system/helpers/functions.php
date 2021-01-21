@@ -498,6 +498,32 @@
     }
     
     
+define("STRING_DELIMITER", " ");
+
+/*
+ * @params: String, Integer
+ * @return: String
+ */
+function word_limiter($str, $limit = 10) {
+
+    $str_s = '';
+    $str = strip_tags($str); // Updated from Ivan Dimov
+    if (stripos($str, STRING_DELIMITER)) {
+        $ex_str = explode(STRING_DELIMITER, $str);
+        if (count($ex_str) > $limit) {
+            for ($i = 0; $i < $limit; $i++) {
+                $str_s.=$ex_str[$i] . " ";
+            }
+            return $str_s;
+        } else {
+            return $str;
+        }
+    } else {
+        return $str;
+    }
+}
+
+
     
     function infoSocial($thevendor, $infosocial){
         $thename = $infosocial->firstName;

@@ -60,7 +60,7 @@
 
         .left{
 
-         margin-top:100px;
+         margin-top:40px;
          width:250px;
         }
 

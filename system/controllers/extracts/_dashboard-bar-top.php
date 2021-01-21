@@ -13,7 +13,16 @@
 
     $D->html_logo = $this->designer->loadLogo();
 
-    $the_username = $this->user->info->user_username;
+    if ($D->_IS_LOGGED){
+        
+        $the_username = $this->user->info->user_username;
+        
+        
+    }
+    else{
+        $the_username = 'Please Login';
+    }
+    
     
     $D->the_menu_top = array(
         array('id_option' => 'ico-dashboard', 'url' => 'dashboard', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'icono' => 'top-dashboard.png', 'tag_title' =>  ''),

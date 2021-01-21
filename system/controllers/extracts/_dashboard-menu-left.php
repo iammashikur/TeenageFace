@@ -13,7 +13,16 @@
 
     /*************************************************************************/
 
-    $the_username = $this->user->info->user_username;
+    if ($D->_IS_LOGGED){
+        
+        $the_username = $this->user->info->user_username;
+        
+        
+    }
+    else{
+        $the_username = 'Please Login';
+    }
+    
     
     $the_allname_user = (empty($this->user->info->firstname) ? $the_username : stripslashes($this->user->info->firstname).' '.stripslashes($this->user->info->lastname));
     $the_firstname_user = (empty($this->user->info->firstname) ? $the_username : stripslashes($this->user->info->firstname));
@@ -60,16 +69,35 @@
      );
 
     $D->dashboard_menu_left .= $this->designer->createBlockMenuLeft($this->lang('dashboard_mleft_groups_title'), $D->the_menu, FALSE);
-	
-    $D->the_menu = array(
-    array('id_option' => 'opt_ml_games', 'url' => 'games', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-games', 'icono' => 'i-m-games.png', 'tag_title' =>  $this->lang('dashboard_mleft_games'), 'text_option' =>  $this->lang('dashboard_mleft_games'), 'id_notification' => 'left-num-games', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_games') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_marketplace', 'url' => 'marketplace', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-marketplace', 'icono' => 'i-m-marketplace.png', 'tag_title' =>  $this->lang('dashboard_mleft_marketplace'), 'text_option' =>  $this->lang('dashboard_mleft_marketplace'), 'id_notification' => 'left-num-marketplace', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_marketplace') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_events', 'url' => 'events', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-events', 'icono' => 'i-m-events.png', 'tag_title' =>  $this->lang('dashboard_mleft_events'), 'text_option' =>  $this->lang('dashboard_mleft_events'), 'id_notification' => 'left-num-events', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_events') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_library', 'url' => 'library', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-library', 'icono' => 'i-m-library.png', 'tag_title' =>  $this->lang('dashboard_mleft_library'), 'text_option' =>  $this->lang('dashboard_mleft_library'), 'id_notification' => 'left-num-library', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_library') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_directory', 'url' => 'directory', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-opt_ml_directory', 'icono' => 'i-m-directory.png', 'tag_title' =>  $this->lang('dashboard_mleft_directory'), 'text_option' =>  $this->lang('dashboard_mleft_directory'), 'id_notification' => 'left-num-directory', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_directory') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_friendsl', 'url' => $this->user->info->user_username.'/friends', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-friendsl', 'icono' => 'i-m-friends.png', 'tag_title' =>  $this->lang('dashboard_mleft_friends'), 'text_option' =>  $this->lang('dashboard_mleft_friends'), 'id_notification' => 'left-num-friendsl', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_friendsl') ? TRUE : FALSE),
+    
+    
+    if ($D->_IS_LOGGED)
+    {
+        $D->the_menu = array(
+            array('id_option' => 'opt_ml_games', 'url' => 'games', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-games', 'icono' => 'i-m-games.png', 'tag_title' =>  $this->lang('dashboard_mleft_games'), 'text_option' =>  $this->lang('dashboard_mleft_games'), 'id_notification' => 'left-num-games', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_games') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_marketplace', 'url' => 'marketplace', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-marketplace', 'icono' => 'i-m-marketplace.png', 'tag_title' =>  $this->lang('dashboard_mleft_marketplace'), 'text_option' =>  $this->lang('dashboard_mleft_marketplace'), 'id_notification' => 'left-num-marketplace', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_marketplace') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_events', 'url' => 'events', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-events', 'icono' => 'i-m-events.png', 'tag_title' =>  $this->lang('dashboard_mleft_events'), 'text_option' =>  $this->lang('dashboard_mleft_events'), 'id_notification' => 'left-num-events', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_events') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_library', 'url' => 'library', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-library', 'icono' => 'i-m-library.png', 'tag_title' =>  $this->lang('dashboard_mleft_library'), 'text_option' =>  $this->lang('dashboard_mleft_library'), 'id_notification' => 'left-num-library', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_library') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_directory', 'url' => 'directory', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-opt_ml_directory', 'icono' => 'i-m-directory.png', 'tag_title' =>  $this->lang('dashboard_mleft_directory'), 'text_option' =>  $this->lang('dashboard_mleft_directory'), 'id_notification' => 'left-num-directory', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_directory') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_friendsl', 'url' => $this->user->info->user_username.'/friends', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-friendsl', 'icono' => 'i-m-friends.png', 'tag_title' =>  $this->lang('dashboard_mleft_friends'), 'text_option' =>  $this->lang('dashboard_mleft_friends'), 'id_notification' => 'left-num-friendsl', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_friendsl') ? TRUE : FALSE),
+        
+             );
+    
+    }
+    else{
+        $D->the_menu = array(
+            array('id_option' => 'opt_ml_games', 'url' => 'games', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-games', 'icono' => 'i-m-games.png', 'tag_title' =>  $this->lang('dashboard_mleft_games'), 'text_option' =>  $this->lang('dashboard_mleft_games'), 'id_notification' => 'left-num-games', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_games') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_marketplace', 'url' => 'marketplace', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-marketplace', 'icono' => 'i-m-marketplace.png', 'tag_title' =>  $this->lang('dashboard_mleft_marketplace'), 'text_option' =>  $this->lang('dashboard_mleft_marketplace'), 'id_notification' => 'left-num-marketplace', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_marketplace') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_events', 'url' => 'events', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-events', 'icono' => 'i-m-events.png', 'tag_title' =>  $this->lang('dashboard_mleft_events'), 'text_option' =>  $this->lang('dashboard_mleft_events'), 'id_notification' => 'left-num-events', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_events') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_library', 'url' => 'library', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-library', 'icono' => 'i-m-library.png', 'tag_title' =>  $this->lang('dashboard_mleft_library'), 'text_option' =>  $this->lang('dashboard_mleft_library'), 'id_notification' => 'left-num-library', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_library') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_directory', 'url' => 'directory', 'rel' => 'phantom', 'target' => 'dashboard-main-area-right', 'id_icono' => 'icom-opt_ml_directory', 'icono' => 'i-m-directory.png', 'tag_title' =>  $this->lang('dashboard_mleft_directory'), 'text_option' =>  $this->lang('dashboard_mleft_directory'), 'id_notification' => 'left-num-directory', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_directory') ? TRUE : FALSE),
+            array('id_option' => 'opt_ml_friendsl', 'url' => '/login', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-friendsl', 'icono' => 'i-m-friends.png', 'tag_title' =>  $this->lang('dashboard_mleft_friends'), 'text_option' =>  $this->lang('dashboard_mleft_friends'), 'id_notification' => 'left-num-friendsl', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_friendsl') ? TRUE : FALSE),
+        
+             );
+     
+    }
 
-     );
+
 
     $D->dashboard_menu_left .= $this->designer->createBlockMenuLeft($this->lang('dashboard_mleft_explore_title'), $D->the_menu, FALSE);
     
@@ -107,16 +135,36 @@
      );
 
     $D->dashboard_menu_responsive .= $this->designer->createBlockMenuLeft($this->lang('dashboard_mleft_groups_title'), $the_menu_resp, FALSE);
-	
-    $the_menu_resp = array(
-    array('id_option' => 'opt_ml_games', 'url' => 'games', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-games', 'icono' => 'i-m-games.png', 'tag_title' =>  $this->lang('dashboard_mleft_games'), 'text_option' =>  $this->lang('dashboard_mleft_games'), 'id_notification' => 'left-num-games', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_games') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_marketplace', 'url' => 'marketplace', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-marketplace', 'icono' => 'i-m-marketplace.png', 'tag_title' =>  $this->lang('dashboard_mleft_marketplace'), 'text_option' =>  $this->lang('dashboard_mleft_marketplace'), 'id_notification' => 'left-num-marketplace', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_marketplace') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_events', 'url' => 'events', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-events', 'icono' => 'i-m-events.png', 'tag_title' =>  $this->lang('dashboard_mleft_events'), 'text_option' =>  $this->lang('dashboard_mleft_events'), 'id_notification' => 'left-num-events', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_events') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_library', 'url' => 'library', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-library', 'icono' => 'i-m-library.png', 'tag_title' =>  $this->lang('dashboard_mleft_library'), 'text_option' =>  $this->lang('dashboard_mleft_library'), 'id_notification' => 'left-num-library', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_library') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_directory', 'url' => 'directory', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-directory', 'icono' => 'i-m-directory.png', 'tag_title' =>  $this->lang('dashboard_mleft_directory'), 'text_option' =>  $this->lang('dashboard_mleft_directory'), 'id_notification' => 'left-num-directory', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_directory') ? TRUE : FALSE),
-    array('id_option' => 'opt_ml_friendsl', 'url' => $this->user->info->user_username.'/friends', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-friendsl', 'icono' => 'i-m-friends.png', 'tag_title' =>  $this->lang('dashboard_mleft_friends'), 'text_option' =>  $this->lang('dashboard_mleft_friends'), 'id_notification' => 'left-num-friendsl', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_friendsl') ? TRUE : FALSE),
     
-     );
+    
+    
+    if ($D->_IS_LOGGED){
+           
+    $the_menu_resp = array(
+        array('id_option' => 'opt_ml_games', 'url' => 'games', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-games', 'icono' => 'i-m-games.png', 'tag_title' =>  $this->lang('dashboard_mleft_games'), 'text_option' =>  $this->lang('dashboard_mleft_games'), 'id_notification' => 'left-num-games', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_games') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_marketplace', 'url' => 'marketplace', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-marketplace', 'icono' => 'i-m-marketplace.png', 'tag_title' =>  $this->lang('dashboard_mleft_marketplace'), 'text_option' =>  $this->lang('dashboard_mleft_marketplace'), 'id_notification' => 'left-num-marketplace', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_marketplace') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_events', 'url' => 'events', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-events', 'icono' => 'i-m-events.png', 'tag_title' =>  $this->lang('dashboard_mleft_events'), 'text_option' =>  $this->lang('dashboard_mleft_events'), 'id_notification' => 'left-num-events', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_events') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_library', 'url' => 'library', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-library', 'icono' => 'i-m-library.png', 'tag_title' =>  $this->lang('dashboard_mleft_library'), 'text_option' =>  $this->lang('dashboard_mleft_library'), 'id_notification' => 'left-num-library', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_library') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_directory', 'url' => 'directory', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-directory', 'icono' => 'i-m-directory.png', 'tag_title' =>  $this->lang('dashboard_mleft_directory'), 'text_option' =>  $this->lang('dashboard_mleft_directory'), 'id_notification' => 'left-num-directory', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_directory') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_friendsl', 'url' => $this->user->info->user_username.'/friends', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-friendsl', 'icono' => 'i-m-friends.png', 'tag_title' =>  $this->lang('dashboard_mleft_friends'), 'text_option' =>  $this->lang('dashboard_mleft_friends'), 'id_notification' => 'left-num-friendsl', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_friendsl') ? TRUE : FALSE),
+        
+         );
+        
+    }
+    else{
+           
+    $the_menu_resp = array(
+        array('id_option' => 'opt_ml_games', 'url' => 'games', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-games', 'icono' => 'i-m-games.png', 'tag_title' =>  $this->lang('dashboard_mleft_games'), 'text_option' =>  $this->lang('dashboard_mleft_games'), 'id_notification' => 'left-num-games', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_games') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_marketplace', 'url' => 'marketplace', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-marketplace', 'icono' => 'i-m-marketplace.png', 'tag_title' =>  $this->lang('dashboard_mleft_marketplace'), 'text_option' =>  $this->lang('dashboard_mleft_marketplace'), 'id_notification' => 'left-num-marketplace', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_marketplace') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_events', 'url' => 'events', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-events', 'icono' => 'i-m-events.png', 'tag_title' =>  $this->lang('dashboard_mleft_events'), 'text_option' =>  $this->lang('dashboard_mleft_events'), 'id_notification' => 'left-num-events', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_events') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_library', 'url' => 'library', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-library', 'icono' => 'i-m-library.png', 'tag_title' =>  $this->lang('dashboard_mleft_library'), 'text_option' =>  $this->lang('dashboard_mleft_library'), 'id_notification' => 'left-num-library', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_library') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_directory', 'url' => 'directory', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-directory', 'icono' => 'i-m-directory.png', 'tag_title' =>  $this->lang('dashboard_mleft_directory'), 'text_option' =>  $this->lang('dashboard_mleft_directory'), 'id_notification' => 'left-num-directory', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_directory') ? TRUE : FALSE),
+        array('id_option' => 'opt_ml_friendsl', 'url' => '/login', 'rel' => 'phantom-max', 'target' => 'dashboard-main-area', 'id_icono' => 'icom-friendsl', 'icono' => 'i-m-friends.png', 'tag_title' =>  $this->lang('dashboard_mleft_friends'), 'text_option' =>  $this->lang('dashboard_mleft_friends'), 'id_notification' => 'left-num-friendsl', 'num_notifications' => '', 'active' => (isset($D->id_menu) && $D->id_menu == 'opt_ml_friendsl') ? TRUE : FALSE),
+        
+         );
+    }
+
+
     
 
     $D->dashboard_menu_responsive .= $this->designer->createBlockMenuLeft($this->lang('dashboard_mleft_explore_title'), $the_menu_resp, FALSE);

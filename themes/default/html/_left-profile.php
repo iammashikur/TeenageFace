@@ -86,13 +86,13 @@
                 ?>
 
                 <div style="display:flex">
-                <p style="float:left; margin:auto">Blog Views</p>
-                <p style="float:right; margin:auto">Earnings</p>
+                <!-- <p style="float:left; margin:auto">Blog Views</p>
+                <p style="float:right; margin:auto">Earnings</p> -->
                 </div>
 
 
                 <center>
-                    <h1 style="font-size:30px; margin-top:50px; margin-bottom:50px"><?php echo standard_count($D->article_views)?></h1>
+                    <h1 style="font-size:30px; margin-top:50px; margin-bottom:50px">Blog Views <?php echo standard_count($D->article_views)?></h1>
                 </center>
 
 
